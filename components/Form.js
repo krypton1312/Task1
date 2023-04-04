@@ -2,17 +2,16 @@ import React, {useState}from 'react';
 import { StyleSheet, TextInput, Text, Button, View } from 'react-native';
 
 export default function Form({addHandler}) {
-   
     const [title,setTitle] = useState('');
     const [disc,setDisc] = useState('');
     const [image,setImage] = useState('');
-    const onChange = (separate) =>{
+    const onChange = (separate, runNum = Math.round(Math.random()*101)) =>{
       if(separate == '')
       {
-        fetch('https://jsonplaceholder.typicode.com/posts/'+(Math.floor(Math.random()+11)).toString())
+        fetch('https://jsonplaceholder.typicode.com/posts/'+runNum.toString())
         .then(response => response.json())
         .then(json => {[setTitle(json.title), setDisc(json.body)]})
-        fetch('https://jsonplaceholder.typicode.com/photos/'+(Math.floor(Math.random()+5001)).toString())
+        fetch('https://jsonplaceholder.typicode.com/photos/'+runNum.toString())
         .then(response => response.json())
         .then(json => setImage(json.thumbnailUrl))
       }

@@ -6,12 +6,12 @@ export default function ListItem({el}) {
       <TouchableOpacity>
         <Text style={styles.text}>
         {el.title}{'\n'}{el.discription}{'\n'}
-        <Image source={{
+        </Text>
+        <Image style={styles.Simage} source={{
           height: 150,
           width: 150,
           uri: el.image
         }}/>
-        </Text>
     </TouchableOpacity>
     );
 }
@@ -25,7 +25,12 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     marginTop:20,
     width:'60%',
-    height: 300,
+    height: 150,
     marginLeft:'20%'
+  },
+  Simage:
+  {
+    marginTop:5,
+    marginLeft:'30%',
   }
 });
